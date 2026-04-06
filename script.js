@@ -98,16 +98,62 @@ btnSubmit.onclick = function () {
   if (typeof displayOutput === "function") {
     displayOutput(window.orderData);
   }
-  // ===== PART E: ADDITIONAL PROCESSING =====
 
-let packagingCharge = 0;
-
-if (dineOption === "Dine In") {
-    packagingCharge = 0;
-} else if (dineOption === "Take Away") {
-    packagingCharge = 0.5;
-}
-
-// Final Payment
-let finalPayment = totalPayment + packagingCharge;
+  // -----------------------------------------------
+  // Q2 - C: Display message using jQuery .text()
+  // -----------------------------------------------
+  $("#message").text("Order processed successfully.");
+  $("#message").show();
+ 
+  // -----------------------------------------------
+  // Q2 - D: Show output section with jQuery effect
+  // Using slideDown()
+  // -----------------------------------------------
+  $("#outputSection").slideDown(500);
 };
+ 
+// -----------------------------------------------
+// Reset button - plain JavaScript
+// -----------------------------------------------
+document.getElementById("btnReset").onclick = function () {
+  document.getElementById("customerName").value = "";
+  document.getElementById("phoneNumber").value  = "";
+  document.getElementById("foodItem").value     = "";
+  document.getElementById("quantity").value     = "";
+  document.getElementById("dineOption").value   = "";
+  document.getElementById("output").innerHTML   = "";
+ 
+  // Hide output section and message on reset
+  $("#outputSection").hide();
+  $("#message").hide();
+};
+ 
+// -----------------------------------------------
+// Q2 - B: Hide / Show Summary using jQuery click()
+// and toggle()
+// -----------------------------------------------
+$("#btnToggle").click(function () {
+  $("#outputSection").toggle();
+});
+
+// ─────────────────────────────────────────────
+//  displayOutput function — builds order summary HTML
+// ─────────────────────────────────────────────
+function displayOutput(data) {
+  var discountLabel = (data.discountAmount > 0)
+    ? "RM " + data.discountAmount.toFixed(2)
+    : "No Discount";
+ 
+  var html = "";
+  html += "<p><strong>Customer Name</strong><span>" + data.customerName + "</span></p>";
+  html += "<p><strong>Phone Number</strong><span>" + data.phoneNumber + "</span></p>";
+  html += "<p><strong>Food Item</strong><span>" + data.foodItem + "</span></p>";
+  html += "<p><strong>Unit Price</strong><span>RM " + data.foodPrice.toFixed(2) + "</span></p>";
+  html += "<p><strong>Quantity</strong><span>" + data.quantity + "</span></p>";
+  html += "<p><strong>Dine Option</strong><span>" + data.dineOption + "</span></p>";
+  html += "<p><strong>Subtotal</strong><span>RM " + data.subtotal.toFixed(2) + "</span></p>";
+  html += "<p><strong>Discount</strong><span>" + discountLabel + "</span></p>";
+  html += "<p class='total-row'><strong>Total Payment</strong><span>RM " + data.totalPayment.toFixed(2) + "</span></p>";
+ 
+  $("#output").html(html);
+}
