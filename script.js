@@ -83,23 +83,6 @@ btnSubmit.onclick = function () {
   var discountAmount = subtotal * discountRate;
   var totalPayment   = subtotal - discountAmount;
 
-  window.orderData = {
-    customerName  : customerName,
-    phoneNumber   : phoneNumber,
-    foodItem      : foodItem,
-    quantity      : quantity,
-    dineOption    : dineOption,
-    foodPrice     : foodPrice,
-    subtotal      : subtotal,
-    discountAmount: discountAmount,
-    totalPayment  : totalPayment
-  };
-
-  if (typeof displayOutput === "function") {
-    displayOutput(window.orderData);
-  }
-  // ===== PART E + F COMBINED =====
-
 // PART E: Packaging Charge
 let packagingCharge = 0;
 
