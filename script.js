@@ -129,6 +129,8 @@ function displayOutput(data) {
   html += "<p><strong>Subtotal</strong><span>RM " + data.subtotal.toFixed(2) + "</span></p>";
   html += "<p><strong>Discount</strong><span>" + discountLabel + "</span></p>";
   html += "<p class='total-row'><strong>Total Payment</strong><span>RM " + data.totalPayment.toFixed(2) + "</span></p>";
+  html += "<p><strong>Packaging Charge</strong><span>RM " + data.packagingCharge.toFixed(2) + "</span></p>";
+html += "<p><strong>Final Payment</strong><span>RM " + data.finalPayment.toFixed(2) + "</span></p>";
  
   $("#output").html(html);
 }
