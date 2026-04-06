@@ -83,7 +83,6 @@ btnSubmit.onclick = function () {
   var discountAmount = subtotal * discountRate;
   var totalPayment   = subtotal - discountAmount;
 
-<<<<<<< HEAD
   window.orderData = {
     customerName  : customerName,
     phoneNumber   : phoneNumber,
@@ -99,44 +98,19 @@ btnSubmit.onclick = function () {
   if (typeof displayOutput === "function") {
     displayOutput(window.orderData);
   }
-
-  // -----------------------------------------------
-  // Q2 - C: Display message using jQuery .text()
-  // -----------------------------------------------
+  // ─────────────────────────────────────────────
+  //  PART C — Display Message Using jQuery .text()
+  // ─────────────────────────────────────────────
   $("#message").text("Order processed successfully.");
-  $("#message").show();
  
-  // -----------------------------------------------
-  // Q2 - D: Show output section with jQuery effect
-  // Using slideDown()
-  // -----------------------------------------------
-  $("#outputSection").slideDown(500);
-};
- 
-// -----------------------------------------------
-// Reset button - plain JavaScript
-// -----------------------------------------------
-document.getElementById("btnReset").onclick = function () {
-  document.getElementById("customerName").value = "";
-  document.getElementById("phoneNumber").value  = "";
-  document.getElementById("foodItem").value     = "";
-  document.getElementById("quantity").value     = "";
-  document.getElementById("dineOption").value   = "";
-  document.getElementById("output").innerHTML   = "";
- 
-  // Hide output section and message on reset
+  // ─────────────────────────────────────────────
+  //  PART D — jQuery Effect: slideDown()
+  // ─────────────────────────────────────────────
   $("#outputSection").hide();
-  $("#message").hide();
+  $("#outputSection").slideDown();
+ 
 };
  
-// -----------------------------------------------
-// Q2 - B: Hide / Show Summary using jQuery click()
-// and toggle()
-// -----------------------------------------------
-$("#btnToggle").click(function () {
-  $("#outputSection").toggle();
-});
-
 // ─────────────────────────────────────────────
 //  displayOutput function — builds order summary HTML
 // ─────────────────────────────────────────────
@@ -158,34 +132,3 @@ function displayOutput(data) {
  
   $("#output").html(html);
 }
-=======
-// PART E: Packaging Charge
-let packagingCharge = 0;
-
-if (dineOption === "Dine In") {
-    packagingCharge = 0;
-} else if (dineOption === "Take Away") {
-    packagingCharge = 0.5;
-}
-
-// Final Payment
-let finalPayment = totalPayment + packagingCharge;
-
-
-// PART F: Output Display
-document.getElementById("output").innerHTML = `
-<p><strong>Customer Name:</strong> ${customerName}</p>
-<p><strong>Phone Number:</strong> ${phoneNumber}</p>
-<p><strong>Food Item:</strong> ${foodItem}</p>
-<p><strong>Quantity:</strong> ${quantity}</p>
-<p><strong>Food Price:</strong> RM ${foodPrice.toFixed(2)}</p>
-<p><strong>Subtotal:</strong> RM ${subtotal.toFixed(2)}</p>
-<p><strong>Discount Amount:</strong> RM ${discountAmount.toFixed(2)}</p>
-<p><strong>Total Payment:</strong> RM ${totalPayment.toFixed(2)}</p>
-<p><strong>Packaging Charge:</strong> RM ${packagingCharge.toFixed(2)}</p>
-<p><strong>Final Payment:</strong> RM ${finalPayment.toFixed(2)}</p>
-`;
-
-document.getElementById("outputSection").style.display = "block";
-};
->>>>>>> 88166e40f51ffb720d987f4d6f9274879f6e1409
