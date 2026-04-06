@@ -1,71 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PSP Cafe Order App</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PSP Cafe Order App</title>
 
-    <!-- Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- jQuery CDN (must be BEFORE script.js) -->
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<div class="container mt-5">
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark cafe-navbar px-4 py-3">
+    <span class="navbar-brand cafe-brand">&#9749; PSP Cafe Order App</span>
+    <span class="badge open-badge">Open Now</span>
+  </nav>
 
-    <h1 class="text-center">PSP Cafe Order App</h1>
-    <p class="text-center">Welcome! Please fill in your order details below.</p>
+  <div class="container py-5">
 
-    <form id="orderForm" class="mt-4">
+    <!-- Hero Header -->
+    <div class="text-center hero-section mb-5">
+      <h1 class="cafe-title">PSP Cafe Order App</h1>
+      <p class="cafe-subtitle">Welcome! Please fill in your order details below.</p>
+      <div class="title-divider mx-auto"></div>
+    </div>
 
-        <!-- Name -->
-        <div class="mb-3">
-            <label>Customer Name</label>
-            <input type="text" id="customerName" class="form-control">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6">
+
+        <!-- Order Form Card -->
+        <div class="cafe-card mb-4">
+          <div class="cafe-card-header">
+            <span>Order Form</span>
+          </div>
+          <div class="cafe-card-body">
+
+            <!-- Customer Name -->
+            <div class="field-group mb-3">
+              <label for="customerName" class="cafe-label">Customer Name</label>
+              <input type="text" class="cafe-input form-control" id="customerName" placeholder="Enter your name" />
+            </div>
+
+            <!-- Phone Number -->
+            <div class="field-group mb-3">
+              <label for="phoneNumber" class="cafe-label">Phone Number</label>
+              <input type="text" class="cafe-input form-control" id="phoneNumber" placeholder="Enter your phone number" />
+            </div>
+
+            <!-- Food Item -->
+            <div class="field-group mb-3">
+              <label for="foodItem" class="cafe-label">Food Item</label>
+              <select class="cafe-input form-select" id="foodItem">
+                <option value="">-- Select Food Item --</option>
+                <option value="Fried Rice">Fried Rice &mdash; RM 6.00</option>
+                <option value="Chicken Burger">Chicken Burger &mdash; RM 5.50</option>
+                <option value="Sandwich">Sandwich &mdash; RM 4.00</option>
+              </select>
+            </div>
+
+            <!-- Quantity -->
+            <div class="field-group mb-3">
+              <label for="quantity" class="cafe-label">Quantity</label>
+              <input type="number" class="cafe-input form-control" id="quantity" placeholder="Enter quantity" min="1" />
+            </div>
+
+            <!-- Dine Option -->
+            <div class="field-group mb-4">
+              <label for="dineOption" class="cafe-label">Dine Option</label>
+              <select class="cafe-input form-select" id="dineOption">
+                <option value="">-- Select Dine Option --</option>
+                <option value="Dine In">Dine In</option>
+                <option value="Take Away">Take Away</option>
+              </select>
+            </div>
+
+            <!-- Buttons -->
+            <div class="d-flex flex-wrap gap-2 justify-content-center">
+              <button class="btn-cafe btn-submit" id="btnSubmit">Submit / Place Order</button>
+              <button class="btn-cafe btn-reset" id="btnReset">Reset</button>
+              <button class="btn-cafe btn-toggle" id="btnToggle">Hide / Show Summary</button>
+            </div>
+
+          </div>
         </div>
 
-        <!-- Phone -->
-        <div class="mb-3">
-            <label>Phone Number</label>
-            <input type="text" id="phoneNumber" class="form-control">
+        <!-- jQuery message placeholder -->
+        <div id="message" class="mb-3"></div>
+
+        <!-- Output Section (hidden initially) -->
+        <div id="outputSection" style="display:none;">
+          <div class="cafe-card">
+            <div class="cafe-card-header">
+              <span>Order Summary</span>
+            </div>
+            <div class="cafe-card-body" id="output">
+              <!-- Filled by script.js -->
+            </div>
+          </div>
         </div>
 
-        <!-- Food -->
-        <div class="mb-3">
-            <label>Food Item</label>
-            <select id="foodItem" class="form-select">
-                <option>Fried Rice</option>
-                <option>Chicken Burger</option>
-                <option>Sandwich</option>
-            </select>
-        </div>
+      </div>
+    </div>
 
-        <!-- Quantity -->
-        <div class="mb-3">
-            <label>Quantity</label>
-            <input type="number" id="quantity" class="form-control">
-        </div>
+    <!-- Footer -->
+    <div class="text-center cafe-footer mt-5">
+      <p>PSP Cafe &nbsp;&bull;&nbsp; Seberang Perai &nbsp;&bull;&nbsp; DFK20013</p>
+    </div>
 
-        <!-- Dine Option -->
-        <div class="mb-3">
-            <label>Dine Option</label><br>
-            <input type="radio" name="dineOption" value="Dine In" checked> Dine In
-            <input type="radio" name="dineOption" value="Take Away"> Take Away
-        </div>
+  </div>
 
-        <!-- Buttons -->
-        <button type="button" id="btnSubmit" class="btn btn-success">Submit</button>
-        <button type="reset" class="btn btn-secondary">Reset</button>
-        <button type="button" id="btnToggle" class="btn btn-warning">Hide / Show Summary</button>
-
-    </form>
-
-    <!-- Output (empty first) -->
-    <div id="output" class="mt-4"></div>
-
-</div>
-
-<!-- JS -->
-<script src="script.js"></script>
+  <!-- External JS -->
+  <script src="script.js"></script>
 
 </body>
 </html>

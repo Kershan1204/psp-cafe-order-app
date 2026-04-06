@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@400;500&display=swap');
+:root {
+  --bg: #140c02;
+  --card: #1c1005;
+  --border: #3a2410;
+  --gold: #b08030;
+  --muted: #7a6048;
+  --text: #c8b898;
+  --input: #160d03;
+}
+body {
+  background-color: var(--bg);
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+  font-size: 0.88rem;
+}
+.cafe-navbar {
+  background-color: #1e1208;
+  border-bottom: 1px solid var(--border);
+}
+.cafe-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  color: var(--gold) !important;
+}
+.open-badge {
+  background-color: var(--gold);
+  color: var(--bg);
+  font-size: 0.72rem;
+  border-radius: 20px;
+  padding: 4px 10px;
+}
+.cafe-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: var(--gold);
+}
+.cafe-subtitle { color: var(--muted); font-size: 0.88rem; }
+.title-divider {
+  width: 50px; height: 2px;
+  background: var(--gold);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+.cafe-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.cafe-card-header {
+  background: #1e1208;
+  border-bottom: 1px solid var(--border);
+  color: var(--gold);
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  padding: 10px 16px;
+}
+.cafe-card-body { padding: 16px; }
+.cafe-label {
+  color: var(--gold);
+  font-size: 0.8rem;
+  font-weight: 500;
+  display: block;
+  margin-bottom: 4px;
+}
+.cafe-input {
+  background-color: var(--input) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text) !important;
+  border-radius: 6px !important;
+  padding: 7px 10px !important;
+  font-size: 0.85rem !important;
+}
+.cafe-input:focus {
+  border-color: var(--gold) !important;
+  box-shadow: 0 0 0 2px rgba(176,128,48,0.2) !important;
+}
+.btn-cafe {
+  border: none; border-radius: 20px;
+  font-size: 0.8rem; font-weight: 600;
+  padding: 7px 16px; cursor: pointer;
+}
+.btn-submit { background: var(--gold); color: var(--bg); }
+.btn-reset  { background: #382010; color: var(--text); border: 1px solid var(--border); }
+.btn-toggle { background: transparent; color: var(--gold); border: 1px solid var(--border); }
+#output p {
+  display: flex; justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  padding: 6px 0; margin: 0; font-size: 0.85rem;
+}
+#output strong { color: var(--muted); font-size: 0.8rem; min-width: 130px; }
+#message { font-size: 0.88rem; color: var(--gold); padding: 8px 14px; border: 1px solid var(--border); border-radius: 6px; }
+.cafe-footer p { color: var(--muted); font-size: 0.78rem; }
+@media (max-width: 576px) {
+  .cafe-title { font-size: 1.4rem; }
+  .btn-cafe   { width: 100%; text-align: center; margin-bottom: 4px; }
+}
