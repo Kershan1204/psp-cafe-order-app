@@ -134,14 +134,7 @@ function displayOutput(data) {
   html += "<p><strong>Discount</strong><span>" + discountLabel + "</span></p>";
   html += "<p class='total-row'><strong>Total Payment</strong><span>RM " + data.totalPayment.toFixed(2) + "</span></p>";
   html += "<p><strong>Packaging Charge</strong><span>RM " + data.packagingCharge.toFixed(2) + "</span></p>";
-<<<<<<< HEAD
   html += "<p><strong>Final Payment</strong><span>RM " + data.finalPayment.toFixed(2) + "</span></p>";
  
-=======
-  html += "<p><strong>Final Payment</strong><span>RM " + data.finalPayment.toFixed(2) + "</span></p>";
- 
-  html += "<p><strong>Final Payment</strong><span>RM " + data.finalPayment.toFixed(2) + "</span></p>";
-
->>>>>>> a95bf40f71d5ad6e5c23626223072691fb4f44f6
   $("#output").html(html);
 }
