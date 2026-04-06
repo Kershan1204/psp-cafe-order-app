@@ -98,5 +98,16 @@ btnSubmit.onclick = function () {
   if (typeof displayOutput === "function") {
     displayOutput(window.orderData);
   }
+  // ===== PART E: ADDITIONAL PROCESSING =====
 
+let packagingCharge = 0;
+
+if (dineOption === "Dine In") {
+    packagingCharge = 0;
+} else if (dineOption === "Take Away") {
+    packagingCharge = 0.5;
+}
+
+// Final Payment
+let finalPayment = totalPayment + packagingCharge;
 };
